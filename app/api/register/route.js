@@ -48,7 +48,13 @@ export async function POST(req) {
     const newUser = { username, email, password, token, watchlist: [] };
     users.push(newUser);
     await db.write();
-    return NextResponse.json({ token }, { status: 200 });
+    return NextResponse.json(
+      {
+        msg: `Success! ${username}, welcome to the D07 Movie & TV Show DB!`,
+        token,
+      },
+      { status: 201 },
+    );
   } catch (error) {
     return NextResponse.json(
       {

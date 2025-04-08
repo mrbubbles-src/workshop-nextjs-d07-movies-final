@@ -7,7 +7,7 @@ export async function POST(req) {
   const body = await req.json();
   const { username, password } = body;
   const db = await getDb();
-  const { users } = db;
+  const { users } = db.data;
 
   const user = users.find(
     (user) => user.username === username && user.password === password,

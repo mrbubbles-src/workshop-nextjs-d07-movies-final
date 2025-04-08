@@ -24,7 +24,7 @@ export async function POST(req) {
 
   if (checkDupeUser) {
     return NextResponse.json(
-      { error: 'User with the same email or username already exists' },
+      { msg: 'Registration failed. Please try a different username or email.' },
       { status: 400 },
     );
   }

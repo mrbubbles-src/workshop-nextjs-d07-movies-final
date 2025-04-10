@@ -51,6 +51,8 @@ export async function POST(req) {
     return NextResponse.json(
       {
         msg: `Success! ${username}, welcome to the D07 Movie & TV Show DB!`,
+        username,
+        watchlist: newUser.watchlist,
         token,
       },
       { status: 201 },

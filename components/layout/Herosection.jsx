@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const Herosection = () => {
   return (
     <header>
@@ -7,7 +9,7 @@ const Herosection = () => {
           Durchsuche eine riesige Auswahl an Filmen & Serien mit nur einem Klick
           und füge deine Favoriten zu deiner Watchlist hinzu.
         </p>
-        <button>Jetzt entdecken</button>
+        <Link href={'#search'}>Jetzt entdecken</Link>
       </div>
     </header>
   );

@@ -76,36 +76,42 @@ const AuthForm = ({ type }) => {
               type="email"
               name="email"
               id="email"
-              placeholder="Please enter a E-mail."
+              placeholder="Email"
               required
             />
           </div>
         )}
         <div>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">Benutzername</label>
           <input
             type="text"
             name="username"
             id="username"
-            placeholder="Please enter a Username"
+            placeholder="Benutzername"
             minLength={3}
             required
           />
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Passwort</label>
           <input
             type="password"
             name="password"
             id="password"
-            placeholder="Please enter a Password"
+            placeholder="Passwort"
             minLength={8}
             required
           />
         </div>
         <button type="submit">{type === 'login' ? 'Login' : 'Register'}</button>
       </form>
-      {error && <h2>{`Unable to ${type}. Please check your credentials.`}</h2>}
+      {error && (
+        <h2 className="font-bold text-red-600">
+          {type === 'login'
+            ? 'Login fehlgeschlagen, bitte überprüfe deine Eingaben'
+            : 'Registrierung fehlgeschlagen, bitte überprüfe deine Eingaben'}
+        </h2>
+      )}
     </section>
   );
 };

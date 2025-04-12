@@ -4,13 +4,7 @@ import { useSearch } from '@/context/SearchProvider';
 import { useRouter } from 'next/navigation';
 
 const Search = () => {
-  const {
-    loading,
-    setLoading,
-    searchValue,
-    setSearchValue,
-    fetchSearchResults,
-  } = useSearch();
+  const { searchValue, setSearchValue } = useSearch();
   const router = useRouter();
   const submitHandler = (e) => {
     e.preventDefault();

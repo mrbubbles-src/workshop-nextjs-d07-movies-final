@@ -8,13 +8,13 @@ export const SearchProvider = ({ children }) => {
   const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
-  const fetchSearchResults = async (searchType = 's') => {
+  const fetchSearchResults = async () => {
     setLoading(true);
     const URL = 'https://www.omdbapi.com/?';
     const API_KEY = '1e3a687b';
     try {
       const res = await fetch(
-        `${URL}${searchType}=${searchValue.trim()}&apikey=${API_KEY}`,
+        `${URL}s=${searchValue.trim()}&apikey=${API_KEY}`,
       );
       const data = await res.json();
       // console.log(data);

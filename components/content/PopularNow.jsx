@@ -2,7 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import ContentCard from './ContentCard';
-import Carousel from '../layout/Carousel';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 const popularMovies = [
   'tt0111161', // The Shawshank Redemption
@@ -68,12 +74,18 @@ const PopularNow = ({ type }) => {
       <h2 className="mb-4 text-xl font-semibold">
         {type === 'movies' ? 'Beliebte Filme' : 'Beliebte Serien'}
       </h2>
-      <Carousel>
-        {items.map((item) => (
-          <div className="relative" key={item.imdbID}>
-            <ContentCard data={item} />
-          </div>
-        ))}
+      <Carousel className="p-2">
+        <CarouselContent>
+          {items.map((item) => (
+            <CarouselItem
+              key={item.imdbID}
+              className="max-w-xs shrink-0 grow-0 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+              <ContentCard data={item} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="left-2 z-10" />
+        <CarouselNext className="right-2 z-10" />
       </Carousel>
     </section>
   );

@@ -3,25 +3,44 @@ import Link from 'next/link';
 
 const ContentCard = ({ data }) => {
   return (
-    <article>
-      <div className="relative aspect-[2/3] w-full">
-        <Link href={`/content/${data.imdbID}`}>
+    <article className="rounded-sm bg-amber-200 p-2 shadow-lg">
+      <section className="relative aspect-[2/3] w-full">
+        <Link href={`/search/details/${data.imdbID}`}>
           <Image
             src={data.Poster}
             alt={`"${data.Title}"-Poster`}
-            className="object-cover"
+            className="rounded-md object-cover shadow-sm"
+            unoptimized
             fill
             sizes="100vw"
           />
         </Link>
-      </div>
-      <h3>
-        {data.Title} -{' '}
-        <span>
+        <aside className="absolute top-2 left-2 z-20 flex flex-wrap gap-2">
+          {data.Genre.split(',').map((genre) => {
+            return (
+              <span className="rounded-md bg-amber-200 p-1 text-sm font-bold shadow-lg">
+                {genre}
+              </span>
+            );
+          })}
+        </aside>
+      </section>
+      <section className="mt-1">
+        <Link
+          href={`/search/details/${data.imdbID}`}
+          title={data.Title}
+          className="font-bold underline underline-offset-3">
+          {data.Title.length >= 26
+            ? `${data.Title.slice(0, 34)}...`
+            : data.Title}
+        </Link>
+        <p className="">
           Erstveröffentlichung:{' '}
-          {data.Released !== 'N/A' ? data.Released : data.Year}
-        </span>
-      </h3>
+          <span className="">
+            {data.Released !== 'N/A' ? data.Released : data.Year}
+          </span>
+        </p>
+      </section>
     </article>
   );
 };

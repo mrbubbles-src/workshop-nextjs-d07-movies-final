@@ -9,7 +9,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/Carousel/carousel';
-import { useSearch } from '@/context/SearchProvider';
 
 const popularMovies = [
   'tt0111161', // The Shawshank Redemption
@@ -37,7 +36,7 @@ const popularShows = [
 ];
 
 const PopularNow = ({ type }) => {
-  const { loading, setLoading } = useSearch();
+  const [loading, setLoading] = useState(false);
   const imdbIds = type === 'movies' ? popularMovies : popularShows;
   const [items, setItems] = useState([]);
 

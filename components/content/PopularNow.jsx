@@ -40,12 +40,10 @@ const PopularNow = ({ type }) => {
   const { loading, setLoading } = useSearch();
   const imdbIds = type === 'movies' ? popularMovies : popularShows;
   const [items, setItems] = useState([]);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      setError(null);
       try {
         const results = await Promise.all(
           imdbIds.map((id) =>
@@ -58,7 +56,7 @@ const PopularNow = ({ type }) => {
         const filtered = results.filter((result) => result.Response === 'True');
         setItems(filtered);
       } catch (err) {
-        setError(err);
+        console.error('Fehler bei der Suche.', err);
       } finally {
         setLoading(false);
       }
@@ -68,7 +66,6 @@ const PopularNow = ({ type }) => {
   }, [type]);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Fehler beim Laden 😬</p>;
 
   return (
     <section className="p-3">

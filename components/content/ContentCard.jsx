@@ -4,8 +4,10 @@ import Link from 'next/link';
 const ContentCard = ({ data }) => {
   return (
     <article className="rounded-sm bg-amber-200 p-2 shadow-lg">
-      <section className="relative aspect-[2/3] w-full">
-        <Link href={`/content/${data.imdbID}`}>
+      <section className="aspect-[2/3] w-full">
+        <Link
+          href={`/content/${data.imdbID}`}
+          className="relative block h-full w-full">
           <Image
             src={data.Poster}
             alt={`"${data.Title}"-Poster`}
@@ -16,13 +18,14 @@ const ContentCard = ({ data }) => {
           />
         </Link>
         <aside className="absolute top-2 left-2 z-20 flex flex-wrap gap-2">
-          {data.Genre.split(',').map((genre) => {
-            return (
-              <span className="rounded-md bg-amber-200 p-1 text-sm font-bold shadow-lg">
-                {genre}
-              </span>
-            );
-          })}
+          {data.genre &&
+            data.Genre.split(',').map((genre) => {
+              return (
+                <span className="rounded-md bg-amber-200 p-1 text-sm font-bold shadow-lg">
+                  {genre}
+                </span>
+              );
+            })}
         </aside>
       </section>
       <section className="mt-1">
@@ -37,7 +40,11 @@ const ContentCard = ({ data }) => {
         <p className="">
           Erstveröffentlichung:{' '}
           <span className="">
-            {data.Released !== 'N/A' ? data.Released : data.Year}
+            {data.Released !== 'N/A'
+              ? data.Released
+              : !data.Year
+                ? 'N/A'
+                : data.Year}
           </span>
         </p>
       </section>

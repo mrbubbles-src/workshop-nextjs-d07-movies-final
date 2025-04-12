@@ -4,10 +4,17 @@ import { useSearch } from '@/context/SearchProvider';
 import { useRouter } from 'next/navigation';
 
 const Search = () => {
-  const { loading, setLoading, searchValue, setSearchValue } = useSearch();
+  const {
+    loading,
+    setLoading,
+    searchValue,
+    setSearchValue,
+    fetchSearchResults,
+  } = useSearch();
   const router = useRouter();
   const submitHandler = (e) => {
     e.preventDefault();
+    router.push('/search');
   };
   return (
     <section id="search" className="p-3">

@@ -25,9 +25,7 @@ export async function POST(req) {
     return NextResponse.json(
       {
         msg: 'Success, you will be redirected momentarily.',
-        username,
         token, // ? Im Backend schicken wir eher nur das Token zurück, welches diverse Infos enthält.
-        watchlist, // ? Würden wir wahrscheinlich eher später über eine gesonderte route fetchen.
       },
       { status: 200 },
     );

@@ -7,7 +7,6 @@ import Link from 'next/link';
 const SearchResults = ({ preview = false }) => {
   const { searchResults } = useSearch();
   const resultsToShow = preview ? searchResults.slice(0, 3) : searchResults;
-  // console.log(resultsToShow);
   return (
     <div>
       {resultsToShow.map((result) => (

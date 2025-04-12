@@ -40,11 +40,9 @@ const ContentCard = ({ data }) => {
         <p className="">
           Erstveröffentlichung:{' '}
           <span className="">
-            {data.Released !== 'N/A'
+            {data.Released && data.Released !== 'N/A'
               ? data.Released
-              : !data.Year
-                ? 'N/A'
-                : data.Year}
+              : data.Year}
           </span>
         </p>
       </section>

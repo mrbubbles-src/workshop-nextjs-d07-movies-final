@@ -8,7 +8,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@/components/ui/carousel';
+} from '@/components/ui/Carousel/carousel';
 
 const popularMovies = [
   'tt0111161', // The Shawshank Redemption
@@ -74,7 +74,7 @@ const PopularNow = ({ type }) => {
       <h2 className="mb-4 text-xl font-semibold">
         {type === 'movies' ? 'Beliebte Filme' : 'Beliebte Serien'}
       </h2>
-      <Carousel className="p-2">
+      <Carousel className="p-2" opts={{ align: 'start', loop: true }}>
         <CarouselContent>
           {items.map((item) => (
             <CarouselItem

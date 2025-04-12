@@ -23,13 +23,11 @@ const AuthForm = ({ type }) => {
   };
 
   const onAuthSuccess = (resData) => {
-    const user = {
-      username: resData.username,
+    const token = {
       token: resData.token,
-      watchlist: resData.watchlist,
     };
 
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('token', JSON.stringify(token));
 
     return router.push('/');
   };

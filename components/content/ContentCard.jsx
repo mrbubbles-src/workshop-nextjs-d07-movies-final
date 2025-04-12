@@ -5,7 +5,7 @@ const ContentCard = ({ data }) => {
   return (
     <article className="rounded-sm bg-amber-200 p-2 shadow-lg">
       <section className="relative aspect-[2/3] w-full">
-        <Link href={`/search/details/${data.imdbID}`}>
+        <Link href={`/content/${data.imdbID}`}>
           <Image
             src={data.Poster}
             alt={`"${data.Title}"-Poster`}
@@ -27,7 +27,7 @@ const ContentCard = ({ data }) => {
       </section>
       <section className="mt-1">
         <Link
-          href={`/search/details/${data.imdbID}`}
+          href={`/content/${data.imdbID}`}
           title={data.Title}
           className="font-bold underline underline-offset-3">
           {data.Title.length >= 26

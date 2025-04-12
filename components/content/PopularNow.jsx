@@ -70,11 +70,11 @@ const PopularNow = ({ type }) => {
   if (error) return <p>Fehler beim Laden 😬</p>;
 
   return (
-    <section>
+    <section className="p-3">
       <h2 className="mb-4 text-xl font-semibold">
         {type === 'movies' ? 'Beliebte Filme' : 'Beliebte Serien'}
       </h2>
-      <Carousel className="p-2" opts={{ align: 'start', loop: true }}>
+      <Carousel opts={{ align: 'start', loop: true }}>
         <CarouselContent>
           {items.map((item) => (
             <CarouselItem

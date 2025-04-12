@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 import Navbar from '@/components/layout/Navbar';
+import { SearchProvider } from '@/context/SearchProvider';
 import './globals.css';
 
 const geistSans = Geist({
@@ -24,8 +25,10 @@ export default function RootLayout({ children }) {
     <html lang="de">
       <body
         className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased`}>
-        <Navbar />
-        <main>{children}</main>
+        <SearchProvider>
+          <Navbar />
+          <main>{children}</main>
+        </SearchProvider>
       </body>
     </html>
   );

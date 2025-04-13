@@ -34,6 +34,10 @@ const UserDashboard = () => {
           <p>Deine Watchlist scheint noch leer zu sein ☹️</p>
           <Link href={'/search'}>Schau doch mal in unsere Suche!</Link>
         </article>
+        <article>
+          <PopularNow type={'movies'} />
+          <PopularNow type={'tvShows'} />
+        </article>
       </section>
     );
   }
@@ -60,10 +64,10 @@ const UserDashboard = () => {
           </article>
         )}
       </section>
-      <aside>
+      <article>
         <PopularNow type={'movies'} />
         <PopularNow type={'tvShows'} />
-      </aside>
+      </article>
     </>
   );
 };

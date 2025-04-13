@@ -2,7 +2,7 @@ import { getDb } from '@/lib/lowdb';
 import { NextResponse } from 'next/server';
 
 export async function GET(req) {
-  const token = req.headers.get('authorization');
+  const token = req.headers.get('Authorization');
   const db = await getDb();
   const { users } = db.data;
 
@@ -15,13 +15,13 @@ export async function GET(req) {
     );
   }
 
-  const { watchlist } = user;
+  const { username, watchlist } = user;
 
-  return NextResponse.json({ watchlist }, { status: 200 });
+  return NextResponse.json({ username, watchlist }, { status: 200 });
 }
 export async function PUT(req) {
   const body = await req.json();
-  const token = req.headers.get('authorization');
+  const token = req.headers.get('Authorization');
   const { watchlistItem } = body;
   const db = await getDb();
   const { users } = db.data;
@@ -67,7 +67,7 @@ export async function PUT(req) {
 }
 export async function DELETE(req) {
   const body = await req.json();
-  const token = req.headers.get('authorization');
+  const token = req.headers.get('Authorization');
   const { watchlistItemId } = body;
   const db = await getDb();
   const { users } = db.data;

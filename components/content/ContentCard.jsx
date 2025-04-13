@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import FavoriteButton from '../ui/FavoriteButton';
 
 const ContentCard = ({ data }) => {
   return (
     <article className="rounded-sm bg-amber-200 p-2 shadow-lg">
-      <section className="aspect-[2/3] w-full">
+      <section className="relative aspect-[2/3] w-full">
         <Link
           href={`/content/${data.imdbID}`}
           className="relative block h-full w-full">
@@ -17,6 +18,15 @@ const ContentCard = ({ data }) => {
             sizes="100vw"
           />
         </Link>
+        <FavoriteButton
+          data={{
+            imdbID: data.imdbID,
+            Poster: data.Poster,
+            Title: data.Title,
+            Released: data.Released,
+            Year: data.Year,
+          }}
+        />
         <aside className="absolute top-2 left-2 z-20 flex flex-wrap gap-2">
           {data.genre &&
             data.Genre.split(',').map((genre) => {

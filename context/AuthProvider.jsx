@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
 
         console.log(userData);
 
-        setUser({ ...userData, token });
+        setUser({ ...userData, token: parsedToken.token });
       } catch (err) {
         console.error(err);
         setUser(null);

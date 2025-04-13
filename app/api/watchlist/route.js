@@ -36,7 +36,9 @@ export async function PUT(req) {
   }
 
   const { watchlist } = user;
-  const isAlreadyOnWatchlist = watchlist.find((item) => item === watchlistItem);
+  const isAlreadyOnWatchlist = watchlist.some(
+    (item) => item.imdbID === watchlistItem.imdbID,
+  );
 
   if (isAlreadyOnWatchlist) {
     return NextResponse.json(
@@ -86,7 +88,7 @@ export async function DELETE(req) {
   try {
     const { watchlist } = user;
     user.watchlist = user.watchlist.filter(
-      (item) => item.id !== watchlistItemId,
+      (item) => item.imdbID !== watchlistItemId,
     );
     await db.write();
     return NextResponse.json(

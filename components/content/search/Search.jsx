@@ -1,6 +1,8 @@
 'use client';
 
 import { useSearch } from '@/context/SearchProvider';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/navigation';
 
 const Search = () => {
@@ -23,7 +25,7 @@ const Search = () => {
           onChange={(e) => setSearchValue(e.target.value)}
         />
         <button type="submit" className="border-2 p-2">
-          🔎
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
       </form>
     </section>

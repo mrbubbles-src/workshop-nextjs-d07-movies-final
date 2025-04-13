@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -116,5 +116,21 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+@layer utilities {
+  @keyframes move-pikachu {
+    0% {
+      transform: translateX(
+        100vw
+      ); /* Start außerhalb des rechten Bildschirms */
+    }
+    100% {
+      transform: translateX(-100vw); /* Ende außerhalb des linken Bildschirms */
+    }
+  }
+
+  .animate-move-pikachu {
+    animation: move-pikachu 1.2s linear infinite;
   }
 }

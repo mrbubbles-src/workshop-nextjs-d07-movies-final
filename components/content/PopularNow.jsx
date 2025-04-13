@@ -9,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/Carousel/carousel';
+import LoadingIndicator from '../ui/LoadingIndicator';
 
 const popularMovies = [
   'tt0111161', // The Shawshank Redemption
@@ -64,7 +65,7 @@ const PopularNow = ({ type }) => {
     fetchData();
   }, [type]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingIndicator />;
 
   return (
     <section className="p-3">

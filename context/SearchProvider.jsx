@@ -17,7 +17,7 @@ export const SearchProvider = ({ children }) => {
         `${URL}s=${searchValue.trim()}&apikey=${API_KEY}`,
       );
       const data = await res.json();
-      // console.log(data);
+
       setSearchResults(data.Search || []);
     } catch (err) {
       console.error('Fehler bei der Suche.', err);

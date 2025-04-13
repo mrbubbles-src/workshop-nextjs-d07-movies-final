@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <SearchProvider>
             <Navbar />
-            <main>{children}</main>
+            <main className="flex flex-col justify-center">{children}</main>
             <Footer />
           </SearchProvider>
         </AuthProvider>

@@ -1,11 +1,10 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 const AuthForm = ({ type }) => {
   const [error, setError] = useState(false);
-  const router = useRouter();
+
   const handleAuthRequest = async (bodyData) => {
     setError(false);
     try {

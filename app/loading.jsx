@@ -1,9 +1,5 @@
-const Loading = () => {
-  return (
-    <div>
-      <h2>Loading...</h2>
-    </div>
-  );
-};
+import LoadingIndicator from '@/components/ui/LoadingIndicator';
 
-export default Loading;
+export default function Loading() {
+  return <LoadingIndicator />;
+}

@@ -13,6 +13,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/Carousel/carousel';
+import LoadingIndicator from '../ui/LoadingIndicator';
 
 const UserDashboard = () => {
   const { user, isLoading } = useAuth();
@@ -26,7 +27,9 @@ const UserDashboard = () => {
 
   if (isLoading) return null;
 
-  if (user.watchlist.length === 0) {
+  if (!user) return null;
+
+  if (user.watchlist?.length === 0) {
     return (
       <section>
         <h1>Willkommen zurück, {user.username}!</h1>

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import FavoriteButton from '@/components/ui/FavoriteButton';
+import LoadingIndicator from '@/components/ui/LoadingIndicator';
 
 const ContentDetailPage = () => {
   const { slug } = useParams();
@@ -29,7 +30,7 @@ const ContentDetailPage = () => {
   }, [slug]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <LoadingIndicator />;
   }
   if (!detailData) return <p>Nothing found.</p>;
   const {
@@ -60,7 +61,7 @@ const ContentDetailPage = () => {
         <h1>{Title}</h1>
         <article className="relative aspect-[2/3] w-[20rem]">
           <Image
-            src={Poster === 'N/A' ? 'images/image-not-found.png' : Poster}
+            src={Poster === 'N/A' ? '/images/image-not-found.png' : Poster}
             alt={Title}
             fill
             sizes="100%"

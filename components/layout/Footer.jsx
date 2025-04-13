@@ -66,7 +66,6 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
           <div className="space-y-1">
             <p className="font-semibold text-white">Rechtliches</p>
             <ul className="space-y-1">

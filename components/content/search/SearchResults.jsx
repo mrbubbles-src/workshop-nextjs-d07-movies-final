@@ -18,9 +18,11 @@ const SearchResults = ({ preview = false }) => {
           className="max-w-xs shrink-0 grow-0 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
         />
       ))}
-      {resultsToShow.length <= 3 && pathname !== '/search' && (
-        <Link href={'/search'}>Mehr Ergebnisse</Link>
-      )}
+      {pathname !== '/search' &&
+        resultsToShow.length > 0 &&
+        resultsToShow.length <= 3 && (
+          <Link href="/search">Mehr Ergebnisse</Link>
+        )}
     </div>
   );
 };

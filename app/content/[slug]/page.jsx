@@ -59,7 +59,12 @@ const ContentDetailPage = () => {
       <section>
         <h1>{Title}</h1>
         <article className="relative aspect-[2/3] w-[20rem]">
-          <Image src={Poster} alt={`${Title}-Poster`} fill sizes="100%" />
+          <Image
+            src={Poster === 'N/A' ? 'images/image-not-found.png' : Poster}
+            alt={Title}
+            fill
+            sizes="100%"
+          />
           <FavoriteButton
             data={{
               imdbID,

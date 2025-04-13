@@ -10,8 +10,12 @@ const ContentCard = ({ data }) => {
           href={`/content/${data.imdbID}`}
           className="relative block h-full w-full">
           <Image
-            src={data.Poster}
-            alt={`"${data.Title}"-Poster`}
+            src={
+              data.Poster === 'N/A'
+                ? '/images/image-not-found.png'
+                : data.Poster
+            }
+            alt={data.Title}
             className="rounded-md object-cover shadow-sm"
             unoptimized
             fill

@@ -28,8 +28,7 @@ const AuthForm = ({ type }) => {
     };
 
     localStorage.setItem('token', JSON.stringify(token));
-
-    return router.push('/');
+    window.location.href = '/dashboard';
   };
 
   const onSubmitHandler = async (e) => {

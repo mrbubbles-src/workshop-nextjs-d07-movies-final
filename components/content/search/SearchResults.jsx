@@ -3,10 +3,12 @@
 import { useSearch } from '@/context/SearchProvider';
 import ContentCard from '../ContentCard';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const SearchResults = ({ preview = false }) => {
   const { searchResults } = useSearch();
   const resultsToShow = preview ? searchResults.slice(0, 3) : searchResults;
+  const pathname = usePathname();
   return (
     <div>
       {resultsToShow.map((result) => (
@@ -16,7 +18,7 @@ const SearchResults = ({ preview = false }) => {
           className="max-w-xs shrink-0 grow-0 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
         />
       ))}
-      {resultsToShow.length <= 3 && (
+      {resultsToShow.length <= 3 && pathname !== '/search' && (
         <Link href={'/search'}>Mehr Ergebnisse</Link>
       )}
     </div>

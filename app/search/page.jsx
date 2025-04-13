@@ -3,10 +3,10 @@ import SearchResults from '@/components/content/search/SearchResults';
 
 const SearchPage = () => {
   return (
-    <div>
+    <section>
       <Search />
       <SearchResults />
-    </div>
+    </section>
   );
 };
 

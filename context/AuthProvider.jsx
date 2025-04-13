@@ -5,10 +5,15 @@ import { createContext, useContext, useEffect, useState } from 'react';
 const AuthContext = createContext(undefined);
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const token = localStorage.getItem('token');
 
-    if (!token) return;
+    if (!token) {
+      setIsLoading(false);
+      return;
+    }
 
     const parsedToken = JSON.parse(token);
 
@@ -26,9 +31,11 @@ export const AuthProvider = ({ children }) => {
         console.log(userData);
 
         setUser({ ...userData, token: parsedToken.token });
+        setIsLoading(false);
       } catch (err) {
         console.error(err);
         setUser(null);
+        setIsLoading(false);
       }
     };
 
@@ -36,7 +43,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser, isLoading }}>
       {children}
     </AuthContext.Provider>
   );

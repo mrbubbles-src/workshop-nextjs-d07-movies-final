@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
+import FavoriteButton from '@/components/ui/FavoriteButton';
 
 const ContentDetailPage = () => {
   const { slug } = useParams();
@@ -38,6 +39,7 @@ const ContentDetailPage = () => {
     Country,
     Director,
     Genre,
+    imdbID,
     Language,
     Plot,
     Poster,
@@ -58,6 +60,15 @@ const ContentDetailPage = () => {
         <h1>{Title}</h1>
         <article className="relative aspect-[2/3] w-[20rem]">
           <Image src={Poster} alt={`${Title}-Poster`} fill sizes="100%" />
+          <FavoriteButton
+            data={{
+              imdbID,
+              Poster,
+              Title,
+              Released,
+              Year,
+            }}
+          />
         </article>
         <article>
           <p>

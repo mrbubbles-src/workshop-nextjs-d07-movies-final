@@ -43,15 +43,15 @@
 
 /* eigene farben */
 @theme {
-  --color-brand-background: oklch(0.18 0.01 270);
-  --color-brand-card: oklch(0.26 0.01 270);
-  --color-brand-primary: oklch(0.65 0.15 27);
-  --color-brand-secondary: oklch(0.6 0.1 150);
-  --color-brand-text-primary: oklch(0.98 0.01 270);
-  --color-brand-text-secondary: oklch(0.7 0.02 270);
-  --color-brand-highlight: oklch(0.9 0.2 100);
-  --color-brand-error: oklch(0.6 0.25 27);
-  --color-brand-success: oklch(0.65 0.2 142);
+  --color-brand-background: oklch(0.22 0.02 270); /* weiches Graphit */
+  --color-brand-card: oklch(0.26 0.01 270); /* dunkle Kartenfläche */
+  --color-brand-primary: oklch(0.68 0.14 320); /* violett-pink CTA */
+  --color-brand-secondary: oklch(0.65 0.1 200); /* cyan-blau Akzent */
+  --color-brand-text-primary: oklch(0.96 0.01 270); /* fast weiß, lila Touch */
+  --color-brand-text-secondary: oklch(0.7 0.02 270); /* leichter Grauton */
+  --color-brand-highlight: oklch(0.78 0.18 100); /* gelbgrüner Effekt */
+  --color-brand-error: oklch(0.6 0.25 27); /* warmes Fehlersignal */
+  --color-brand-success: oklch(0.65 0.2 142); /* klares Erfolgsgrün */
 }
 :root {
   --radius: 0.625rem;

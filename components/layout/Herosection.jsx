@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Herosection = () => {
   return (
-    <header className="bg-brand-success flex flex-col place-items-center px-[clamp(1rem,5vw,5rem)] py-[clamp(2rem,10vw,10rem)] text-pretty">
+    <header className="flex aspect-[16/9] w-full flex-col items-center justify-center bg-black bg-[url('/images/hero-bg.png')] bg-cover bg-center bg-no-repeat px-[clamp(1rem,5vw,5rem)] py-[clamp(2rem,10vw,10rem)] text-pretty">
       <article className="flex flex-col gap-5 md:max-w-[75vw] lg:max-w-[55vw]">
         <section>
           <h1 className="text-[clamp(2.6rem,6vw,5.2rem)] font-bold">
@@ -13,7 +13,7 @@ const Herosection = () => {
           </h2>
         </section>
         <section>
-          <p className="text-[clamp(1.1rem,3vw,2rem)]">
+          <p className="text-brand-text-secondary text-[clamp(1.1rem,3vw,2rem)]">
             Durchsuche eine riesige Auswahl an Filmen & Serien mit nur einem
             Klick und füge deine Favoriten zu deiner Watchlist hinzu.
           </p>

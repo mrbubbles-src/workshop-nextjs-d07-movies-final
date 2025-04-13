@@ -5,7 +5,7 @@ import Auth from './Auth';
 
 const Navbar = () => {
   return (
-    <nav className="flex flex-wrap items-center justify-between p-5">
+    <nav className="bg-brand-card flex flex-wrap items-center justify-between p-5">
       <aside className="h-20 w-40">
         <Link href="/" className="relative block h-full w-full">
           <Image

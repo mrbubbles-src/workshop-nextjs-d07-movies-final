@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="de">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased`}>
+        className={`${geistSans.variable} ${geistMono.variable} bg-brand-background text-brand-text-primary scroll-smooth antialiased`}>
         <AuthProvider>
           <SearchProvider>
             <Navbar />

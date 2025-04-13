@@ -4,7 +4,7 @@ import FavoriteButton from '../ui/FavoriteButton';
 
 const ContentCard = ({ data }) => {
   return (
-    <article className="rounded-sm bg-amber-200 p-2 shadow-lg">
+    <article className="bg-brand-card rounded-sm p-2 shadow-lg">
       <section className="relative aspect-[2/3] w-full">
         <Link
           href={`/content/${data.imdbID}`}

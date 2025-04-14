@@ -1,3 +1,4 @@
+export const runtime = 'nodejs';
 import { getDb } from '@/lib/lowdb';
 import { NextResponse } from 'next/server';
 

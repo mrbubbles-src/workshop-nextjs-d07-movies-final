@@ -14,17 +14,18 @@ const Search = () => {
   };
   return (
     <section id="search" className="p-3">
-      <form onSubmit={submitHandler} className="flex justify-center border-2">
+      <form onSubmit={submitHandler} className="flex justify-center">
         <input
           type="search"
           name="search"
           placeholder="z. B. The Matrix"
           id="search-input"
-          className="w-[30rem] border-2 p-2"
+          autoComplete="off"
+          className="shadow-brand-primary focus:shadow-brand-secondary bg-brand-card text-brand-highlight placeholder:text-brand-highlight/60 w-full p-2 font-bold shadow-md focus:shadow-lg focus:outline-none lg:w-[70rem]"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
-        <button type="submit" className="border-2 p-2">
+        <button type="submit" className="text-brand-secondary p-2">
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
       </form>

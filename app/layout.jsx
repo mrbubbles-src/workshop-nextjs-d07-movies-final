@@ -17,20 +17,38 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: 'D07 Movie & TV DB',
-  description: 'D07 Movie & TV DB – Einfach suchen, merken, anschauen.',
+  description: 'D07 Movie & TV DB – Suchen. Merken. Lieblingsfilme sammeln.',
   icons: {
-    icon: 'images/favicon.svg',
+    icon: '/images/favicon.svg',
+  },
+  openGraph: {
+    title: 'D07 Movie & TV DB',
+    description:
+      'Die ultimative Sammlung für Filme und Serien – einfach suchen, merken, Lieblingsfilme sammeln.',
+    images: [
+      {
+        url: '/images/logo.svg',
+        width: 1200,
+        height: 630,
+        alt: 'D07 Movie & TV DB Hero',
+      },
+    ],
+    type: 'website',
+    locale: 'de_DE',
   },
 };
+
 export default function RootLayout({ children }) {
   return (
     <html lang="de">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-brand-background text-brand-text-primary scroll-smooth antialiased`}>
+        className={`${geistSans.variable} ${geistMono.variable} bg-brand-background text-brand-text-primary flex min-h-screen flex-col scroll-smooth antialiased`}>
         <AuthProvider>
           <SearchProvider>
             <Navbar />
-            <main className="flex flex-col justify-center">{children}</main>
+            <main className="flex flex-1 flex-col justify-center">
+              {children}
+            </main>
             <Footer />
           </SearchProvider>
         </AuthProvider>

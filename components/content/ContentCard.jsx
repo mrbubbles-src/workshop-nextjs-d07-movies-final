@@ -2,9 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import FavoriteButton from '../ui/FavoriteButton';
 
-const ContentCard = ({ data }) => {
+const ContentCard = ({ data, shadow = false }) => {
   return (
-    <article className="bg-brand-card rounded-sm p-2 shadow-lg">
+    <article
+      className={`bg-brand-card ${shadow ? 'shadow-brand-primary hover:shadow-brand-secondary shadow-md' : ''} rounded-sm p-2 transition-all duration-500 ease-in-out`}>
       <section className="relative aspect-[2/3] w-full">
         <Link
           href={`/content/${data.imdbID}`}
@@ -46,7 +47,7 @@ const ContentCard = ({ data }) => {
         <Link
           href={`/content/${data.imdbID}`}
           title={data.Title}
-          className="font-bold underline underline-offset-3">
+          className="hover:text-brand-primary hover:decoration-brand-primary font-bold underline underline-offset-3 transition-all duration-500 ease-in-out">
           {data.Title.length >= 26
             ? `${data.Title.slice(0, 34)}...`
             : data.Title}

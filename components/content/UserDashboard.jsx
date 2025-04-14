@@ -31,11 +31,18 @@ const UserDashboard = () => {
 
   if (user.watchlist?.length === 0) {
     return (
-      <section>
-        <h1>Willkommen zurück, {user.username}!</h1>
-        <article>
+      <section className="mt-4 flex flex-col gap-3">
+        <h1 className="text-center text-4xl font-bold text-pretty">
+          Willkommen zurück,{' '}
+          <span className="text-brand-primary">{user.username}</span>!
+        </h1>
+        <article className="flex flex-col place-items-center text-lg">
           <p>Deine Watchlist scheint noch leer zu sein ☹️</p>
-          <Link href={'/search'}>Schau doch mal in unsere Suche!</Link>
+          <Link
+            href={'/search'}
+            className="text-brand-secondary hover:text-brand-primary hover:decoration-brand-primary underline-offset-4 transition-all duration-300 ease-in-out hover:underline">
+            Schau doch mal in unsere Suche!
+          </Link>
         </article>
         <article>
           <PopularNow type={'movies'} />
@@ -46,12 +53,19 @@ const UserDashboard = () => {
   }
   return (
     <>
-      <section>
-        <h1>Willkommen zurück, {user.username}!</h1>
+      <section className="mt-4 flex flex-col gap-3">
+        <h1 className="text-center text-4xl font-bold text-pretty">
+          Willkommen zurück,{' '}
+          <span className="text-brand-primary">{user.username}</span>!
+        </h1>
         {user.watchlist && (
-          <article>
-            <h2>Hier ist deine Watchlist:</h2>
-            <Carousel opts={{ align: 'start', loop: true }}>
+          <article className="my-4">
+            <h2 className="mb-3 px-2 text-xl font-bold">
+              Hier ist deine Watchlist:
+            </h2>
+            <Carousel
+              opts={{ align: 'start', loop: true }}
+              className="shadow-brand-primary hover:shadow-brand-secondary shadow-md transition-all duration-500 ease-in-out">
               <CarouselContent>
                 {user.watchlist.map((item) => (
                   <CarouselItem
@@ -61,8 +75,8 @@ const UserDashboard = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-2 z-10" />
-              <CarouselNext className="right-2 z-10" />
+              <CarouselPrevious className="text-brand-text-primary shadow-brand-primary bg-brand-secondary hover:shadow-brand-secondary hover:bg-brand-primary hover:text-brand-text-primary left-2 z-10 cursor-pointer border-none shadow-sm transition-all duration-500 ease-in-out hover:shadow-md" />
+              <CarouselNext className="text-brand-text-primary shadow-brand-primary bg-brand-secondary hover:shadow-brand-secondary hover:bg-brand-primary hover:text-brand-text-primary right-2 z-10 cursor-pointer border-none shadow-sm transition-all duration-500 ease-in-out hover:shadow-md" />
             </Carousel>
           </article>
         )}

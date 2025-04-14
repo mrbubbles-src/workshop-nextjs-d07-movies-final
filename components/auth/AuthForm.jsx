@@ -62,13 +62,18 @@ const AuthForm = ({ type }) => {
     }
   };
   return (
-    <section>
-      <h1>{type && type.at(0).toUpperCase() + type.slice(1)}</h1>
-      <form onSubmit={onSubmitHandler}>
+    <section className="bg-brand-card mx-auto my-4 flex w-[min(100%,theme(maxWidth.md))] flex-col gap-5 rounded-md p-4">
+      <h1 className="text-center text-4xl font-bold">
+        {type && type.at(0).toUpperCase() + type.slice(1)}
+      </h1>
+      <form onSubmit={onSubmitHandler} className="flex w-full flex-col gap-3">
         {type === 'register' && (
-          <div>
-            <label htmlFor="email">Email</label>
+          <div className="flex w-full flex-col gap-1 px-1">
+            <label htmlFor="email" className="text-lg font-bold">
+              Email
+            </label>
             <input
+              className="shadow-brand-primary focus:shadow-brand-secondary bg-brand-card text-brand-highlight placeholder:text-brand-highlight/60 w-full p-2 font-bold shadow-md focus:shadow-lg focus:outline-none"
               type="email"
               name="email"
               id="email"
@@ -77,9 +82,12 @@ const AuthForm = ({ type }) => {
             />
           </div>
         )}
-        <div>
-          <label htmlFor="username">Benutzername</label>
+        <div className="flex w-full flex-col gap-1 px-1">
+          <label htmlFor="username" className="text-lg font-bold">
+            Benutzername
+          </label>
           <input
+            className="shadow-brand-primary focus:shadow-brand-secondary bg-brand-card text-brand-highlight placeholder:text-brand-highlight/60 w-full p-2 font-bold shadow-md focus:shadow-lg focus:outline-none"
             type="text"
             name="username"
             id="username"
@@ -88,9 +96,12 @@ const AuthForm = ({ type }) => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="password">Passwort</label>
+        <div className="flex w-full flex-col gap-1 px-1">
+          <label htmlFor="password" className="text-lg font-bold">
+            Passwort
+          </label>
           <input
+            className="shadow-brand-primary focus:shadow-brand-secondary bg-brand-card text-brand-highlight placeholder:text-brand-highlight/60 w-full p-2 font-bold shadow-md focus:shadow-lg focus:outline-none"
             type="password"
             name="password"
             id="password"
@@ -99,10 +110,14 @@ const AuthForm = ({ type }) => {
             required
           />
         </div>
-        <button type="submit">{type === 'login' ? 'Login' : 'Register'}</button>
+        <button
+          type="submit"
+          className="bg-brand-secondary hover:bg-brand-primary shadow-brand-primary hover:shadow-brand-secondary mt-2 mb-2 ml-1 w-fit place-self-start rounded-md px-7 py-2 font-bold shadow-md transition-colors duration-1000 ease-in-out active:scale-95 active:shadow-none">
+          {type === 'login' ? 'Login' : 'Register'}
+        </button>
       </form>
       {error && (
-        <h2 className="font-bold text-red-600">
+        <h2 className="text-brand-error place-self-center font-bold">
           {type === 'login'
             ? 'Login fehlgeschlagen, bitte überprüfe deine Eingaben'
             : 'Registrierung fehlgeschlagen, bitte überprüfe deine Eingaben'}

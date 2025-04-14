@@ -72,7 +72,9 @@ const PopularNow = ({ type }) => {
       <h2 className="mb-4 text-xl font-semibold">
         {type === 'movies' ? 'Beliebte Filme' : 'Beliebte Serien'}
       </h2>
-      <Carousel opts={{ align: 'start', loop: true }}>
+      <Carousel
+        className="shadow-brand-primary hover:shadow-brand-secondary shadow-md transition-all duration-500 ease-in-out"
+        opts={{ align: 'start', loop: true }}>
         <CarouselContent>
           {items.map((item) => (
             <CarouselItem
@@ -82,8 +84,8 @@ const PopularNow = ({ type }) => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-2 z-10" />
-        <CarouselNext className="right-2 z-10" />
+        <CarouselPrevious className="text-brand-text-primary shadow-brand-primary bg-brand-secondary hover:shadow-brand-secondary hover:bg-brand-primary hover:text-brand-text-primary left-2 z-10 cursor-pointer border-none shadow-sm transition-all duration-500 ease-in-out hover:shadow-md" />
+        <CarouselNext className="text-brand-text-primary shadow-brand-primary bg-brand-secondary hover:shadow-brand-secondary hover:bg-brand-primary hover:text-brand-text-primary right-2 z-10 cursor-pointer border-none shadow-sm transition-all duration-500 ease-in-out hover:shadow-md" />
       </Carousel>
     </section>
   );

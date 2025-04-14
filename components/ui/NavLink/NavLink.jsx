@@ -9,8 +9,8 @@ const NavLink = ({ href, children }) => {
       href={href}
       className={
         isActive(href)
-          ? 'text-steel-blue-50 scale-110 font-semibold underline underline-offset-4 duration-500 ease-in-out'
-          : 'text-steel-blue-50 font-normal duration-500 ease-in-out hover:scale-110 hover:font-semibold hover:underline hover:underline-offset-4'
+          ? 'text-brand-primary scale-110 cursor-pointer font-semibold underline underline-offset-4 duration-500 ease-in-out md:text-lg'
+          : 'text-brand-text-primary hover:text-brand-primary cursor-pointer font-normal underline-offset-4 duration-500 ease-in-out hover:scale-110 hover:font-semibold hover:underline md:text-lg'
       }>
       {children}
     </Link>

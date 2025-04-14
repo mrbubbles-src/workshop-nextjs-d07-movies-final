@@ -33,21 +33,21 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="decoration-brand-text-primary underline-offset-4 hover:underline">
+                  className="decoration-brand-primary hover:text-brand-primary underline-offset-4 transition-all duration-300 ease-in-out hover:font-bold hover:underline">
                   Über uns
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="decoration-brand-text-primary underline-offset-4 hover:underline">
+                  className="decoration-brand-primary hover:text-brand-primary underline-offset-4 transition-all duration-300 ease-in-out hover:font-bold hover:underline">
                   API Infos
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="decoration-brand-text-primary underline-offset-4 hover:underline">
+                  className="decoration-brand-primary hover:text-brand-primary underline-offset-4 transition-all duration-300 ease-in-out hover:font-bold hover:underline">
                   Feedback
                 </a>
               </li>
@@ -60,21 +60,21 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="decoration-brand-text-primary underline-offset-4 hover:underline">
+                  className="decoration-brand-primary hover:text-brand-primary underline-offset-4 transition-all duration-300 ease-in-out hover:font-bold hover:underline">
                   GitHub Repo
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="decoration-brand-text-primary underline-offset-4 hover:underline">
+                  className="decoration-brand-primary hover:text-brand-primary underline-offset-4 transition-all duration-300 ease-in-out hover:font-bold hover:underline">
                   OMDB API
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="decoration-brand-text-primary underline-offset-4 hover:underline">
+                  className="decoration-brand-primary hover:text-brand-primary underline-offset-4 transition-all duration-300 ease-in-out hover:font-bold hover:underline">
                   Next.js Docs
                 </a>
               </li>
@@ -86,21 +86,21 @@ const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="decoration-brand-text-primary underline-offset-4 hover:underline">
+                  className="decoration-brand-primary hover:text-brand-primary underline-offset-4 transition-all duration-300 ease-in-out hover:font-bold hover:underline">
                   Impressum
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="decoration-brand-text-primary underline-offset-4 hover:underline">
+                  className="decoration-brand-primary hover:text-brand-primary underline-offset-4 transition-all duration-300 ease-in-out hover:font-bold hover:underline">
                   Datenschutz
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="decoration-brand-text-primary underline-offset-4 hover:underline">
+                  className="decoration-brand-primary hover:text-brand-primary underline-offset-4 transition-all duration-300 ease-in-out hover:font-bold hover:underline">
                   Nutzungsbedingungen
                 </a>
               </li>

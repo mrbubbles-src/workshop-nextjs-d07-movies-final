@@ -10,20 +10,23 @@ const SearchResults = ({ preview = false }) => {
   const resultsToShow = preview ? searchResults.slice(0, 3) : searchResults;
   const pathname = usePathname();
   return (
-    <div>
-      {resultsToShow.map((result) => (
-        <ContentCard
-          key={result.imdbID}
-          data={result}
-          className="max-w-xs shrink-0 grow-0 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
-        />
-      ))}
+    <article className="flex flex-col">
+      <section className="flex flex-col justify-center gap-3 p-3 md:flex-row md:flex-wrap md:items-center">
+        {resultsToShow.map((result) => (
+          <ContentCard key={result.imdbID} data={result} shadow={true} />
+        ))}
+      </section>
+
       {pathname !== '/search' &&
         resultsToShow.length > 0 &&
         resultsToShow.length <= 3 && (
-          <Link href="/search">Mehr Ergebnisse</Link>
+          <Link
+            className="bg-brand-secondary hover:bg-brand-primary shadow-brand-primary hover:shadow-brand-secondary mt-4 w-fit place-self-center rounded-md px-[clamp(1rem,2.5vw,2rem)] py-[clamp(0.5rem,1.5vw,1rem)] text-[clamp(1rem,2vw,1.5rem)] font-bold text-white shadow-md transition-colors duration-1000 ease-in-out active:scale-95 active:shadow-none"
+            href="/search">
+            Mehr Ergebnisse
+          </Link>
         )}
-    </div>
+    </article>
   );
 };
 

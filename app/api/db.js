@@ -9,8 +9,6 @@ export async function getDb() {
     const response = await axios.get(BASE_URL, {
       headers: {
         'X-Master-Key': API_KEY,
-        'User-Agent': 'Next.js Server',
-        'Content-Type': 'application/json',
       },
       timeout: 5000,
     });

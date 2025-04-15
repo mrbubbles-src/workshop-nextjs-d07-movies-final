@@ -33,8 +33,9 @@ This is a Next.js 15 (App Router) workshop app for movie search, watchlist, logi
 │   │   └── route.js
 │   ├── 📁 register
 │   │   └── route.js
-│   └── 📁 watchlist
-│       └── route.js
+│   ├── 📁 watchlist
+│   │   └── route.js
+│   ├── db.js
 ├── 📁 content
 │   ├── 📁 [slug]
 │   │   └── page.jsx
@@ -82,7 +83,6 @@ This is a Next.js 15 (App Router) workshop app for movie search, watchlist, logi
 📁 hooks
 └── useActivePath.js
 📁 lib
-├── lowdb.js
 └── utils.js
 📁 public
 └── 📁 images

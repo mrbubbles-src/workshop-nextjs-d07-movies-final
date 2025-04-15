@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 const FavoriteButton = ({ data }) => {
   const { user, setUser } = useAuth();
   const [isFavorite, setIsFavorite] = useState(false);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   useEffect(() => {
     setIsFavorite(
@@ -17,7 +18,9 @@ const FavoriteButton = ({ data }) => {
   }, [JSON.stringify(user?.watchlist), data.imdbID]);
 
   const handleFavoriteToggle = async () => {
+    if (loading) return;
     if (!user) return router.push('/login');
+    setLoading(true);
     try {
       const res = await fetch('/api/watchlist', {
         method: isFavorite ? 'DELETE' : 'PUT',
@@ -42,6 +45,8 @@ const FavoriteButton = ({ data }) => {
       setIsFavorite((prev) => !prev);
     } catch (err) {
       console.error('Error updating watchlist:', err.message);
+    } finally {
+      setLoading(false);
     }
   };
 

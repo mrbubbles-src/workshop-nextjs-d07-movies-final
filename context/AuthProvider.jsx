@@ -28,8 +28,6 @@ export const AuthProvider = ({ children }) => {
 
         const userData = await res.json();
 
-        console.log(userData);
-
         setUser({ ...userData, token: parsedToken.token });
         setIsLoading(false);
       } catch (err) {

@@ -5,9 +5,34 @@ import { NextResponse } from 'next/server';
 // ? „Login prüft, ob der User in unserer fake-DB existiert, und ob das Passwort stimmt.
 // ? Wenn ja, kriegen wir das Token, das wir später in localStorage speichern – als Fake-Login-Zeichen.
 export async function POST(req) {
-  const body = await req.json();
+  let body;
+
+  try {
+    body = await req.json();
+  } catch (err) {
+    return NextResponse.json(
+      { msg: 'Invalid JSON in request' },
+      { status: 400 },
+    );
+  }
+
+  if (!body || typeof body !== 'object') {
+    return NextResponse.json(
+      { msg: 'Missing or invalid request body' },
+      { status: 400 },
+    );
+  }
+
   const { username, password } = body;
   const db = await getDb();
+
+  if (!db?.data?.users) {
+    return NextResponse.json(
+      { msg: 'Database structure invalid' },
+      { status: 500 },
+    );
+  }
+
   const { users } = db.data;
 
   const user = users.find(
@@ -22,7 +47,7 @@ export async function POST(req) {
   }
 
   try {
-    const { username, token, watchlist } = user;
+    const { token } = user;
     return NextResponse.json(
       {
         msg: 'Success, you will be redirected momentarily.',

@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 const AuthForm = ({ type }) => {
   const [error, setError] = useState(false);
-
   const handleAuthRequest = async (bodyData) => {
     setError(false);
     try {

@@ -1,6 +1,7 @@
 export const runtime = 'nodejs';
 import { getDb } from '@/lib/lowdb';
 import { NextResponse } from 'next/server';
+import { saveDb } from '@/lib/lowdb';
 
 // ? Generiert ein fake Sicherheitstoken, welches wir zum überprüfen des Login-Status nutzen
 function generateToken(length = 8) {
@@ -17,6 +18,14 @@ export async function POST(req) {
   const body = await req.json();
   const { username, email, password } = body;
   const db = await getDb();
+
+  if (!db?.data?.users) {
+    return NextResponse.json(
+      { msg: 'Database structure invalid' },
+      { status: 500 },
+    );
+  }
+
   const { users } = db.data;
 
   const checkDupeUser = users.find(
@@ -48,7 +57,7 @@ export async function POST(req) {
      */
     const newUser = { username, email, password, token, watchlist: [] };
     users.push(newUser);
-    await db.write();
+    await saveDb(db.data);
     return NextResponse.json(
       {
         msg: `Success! ${username}, welcome to the D07 Movie & TV Show DB!`,

@@ -1,10 +1,19 @@
 export const runtime = 'nodejs';
 import { getDb } from '@/lib/lowdb';
+import { saveDb } from '@/lib/lowdb';
 import { NextResponse } from 'next/server';
 
 export async function GET(req) {
   const token = req.headers.get('Authorization');
   const db = await getDb();
+
+  if (!db?.data?.users) {
+    return NextResponse.json(
+      { msg: 'Database structure invalid' },
+      { status: 500 },
+    );
+  }
+
   const { users } = db.data;
 
   const user = users.find((user) => user.token === token);
@@ -50,7 +59,7 @@ export async function PUT(req) {
 
   try {
     watchlist.push(watchlistItem);
-    await db.write();
+    await saveDb(db.data);
     return NextResponse.json(
       {
         msg: `${watchlistItem.title} successfully added to Watchlist.`,
@@ -91,7 +100,7 @@ export async function DELETE(req) {
     user.watchlist = user.watchlist.filter(
       (item) => item.imdbID !== watchlistItemId,
     );
-    await db.write();
+    await saveDb(db.data); // Updated to ensure correct payload structure
     return NextResponse.json(
       {
         msg: 'Successfully deleted item from Watchlist.',

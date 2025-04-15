@@ -22,6 +22,7 @@ const FavoriteButton = ({ data }) => {
       const res = await fetch('/api/watchlist', {
         method: isFavorite ? 'DELETE' : 'PUT',
         headers: {
+          'Content-Type': 'application/json',
           Authorization: user.token,
         },
         body: JSON.stringify(

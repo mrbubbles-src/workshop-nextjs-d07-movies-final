@@ -39,10 +39,16 @@ const FavoriteButton = ({ data }) => {
       const resData = await res.json();
       if (!res.ok) throw new Error(resData.msg || 'Something went wrong');
 
-      setUser((prev) => ({
-        ...prev,
-        watchlist: resData.watchlist,
-      }));
+      setUser((prev) => {
+        const updatedList = isFavorite
+          ? prev.watchlist.filter((item) => item.imdbID !== data.imdbID)
+          : [...prev.watchlist, data];
+
+        return {
+          ...prev,
+          watchlist: updatedList,
+        };
+      });
     } catch (err) {
       console.error('Error updating watchlist:', err.message);
       setIsFavorite((prev) => !prev);

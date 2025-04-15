@@ -14,7 +14,11 @@ export async function getDb() {
     });
     return { data: response.data.record };
   } catch (error) {
-    console.error('getDb error:', error.message);
+    console.error(
+      'getDb error:',
+      error.response?.status,
+      error.response?.data || error.message,
+    );
     throw new Error('Failed to fetch data from JSONBin');
   }
 }

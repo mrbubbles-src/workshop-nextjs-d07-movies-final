@@ -34,8 +34,7 @@ export async function POST(req) {
   }
 
   const { users } = db.data;
-  console.log('DB users:', users);
-  console.log('Login attempt:', { username, password });
+
   const user = users.find(
     (user) => user.username === username && user.password === password,
   );

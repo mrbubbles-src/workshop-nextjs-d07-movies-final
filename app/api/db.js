@@ -5,12 +5,13 @@ const API_KEY = '$2a$10$8VhVUVUjya9yTXul1nuGQewX8o2ARF5m5flcdRgOMvuto0li8eA3.';
 const BASE_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
 
 export async function getDb() {
+  console.log('⏱ Sending getDB request to JSONBin...');
   try {
     const response = await axios.get(BASE_URL, {
       headers: {
         'X-Master-Key': API_KEY,
       },
-      timeout: 5000,
+      timeout: 15000,
     });
     return { data: response.data.record };
   } catch (error) {
@@ -24,13 +25,14 @@ export async function getDb() {
 }
 
 export async function saveDb(data) {
+  console.log('⏱ Sending saveDB request to JSONBin...');
   try {
     await axios.put(BASE_URL, data, {
       headers: {
         'Content-Type': 'application/json',
         'X-Master-Key': API_KEY,
       },
-      timeout: 5000,
+      timeout: 15000,
     });
   } catch (error) {
     console.error('saveDb error:', error.message);

@@ -1,15 +1,10 @@
 export const runtime = 'nodejs';
-import { getDb } from '@/lib/lowdb';
+import { getDb } from '@/app/api/lowdb';
 import { NextResponse } from 'next/server';
 
 // ? „Login prüft, ob der User in unserer fake-DB existiert, und ob das Passwort stimmt.
 // ? Wenn ja, kriegen wir das Token, das wir später in localStorage speichern – als Fake-Login-Zeichen.
 export async function POST(req) {
-  console.log(
-    'API KEY on Vercel:',
-    process.env.NODE_ENV,
-    require('@/lib/lowdb').API_KEY,
-  );
   let body;
 
   try {

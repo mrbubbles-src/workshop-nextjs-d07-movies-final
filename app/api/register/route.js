@@ -1,7 +1,7 @@
 export const runtime = 'nodejs';
-import { getDb } from '@/lib/lowdb';
+import { getDb } from '@/app/api/lowdb';
 import { NextResponse } from 'next/server';
-import { saveDb } from '@/lib/lowdb';
+import { saveDb } from '@/app/api/lowdb';
 
 // ? Generiert ein fake Sicherheitstoken, welches wir zum überprüfen des Login-Status nutzen
 function generateToken(length = 8) {

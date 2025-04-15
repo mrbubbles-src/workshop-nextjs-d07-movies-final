@@ -1,6 +1,6 @@
 export const runtime = 'nodejs';
-import { getDb } from '@/lib/lowdb';
-import { saveDb } from '@/lib/lowdb';
+import { getDb } from '@/app/api/lowdb';
+import { saveDb } from '@/app/api/lowdb';
 import { NextResponse } from 'next/server';
 
 export async function GET(req) {

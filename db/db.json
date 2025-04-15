@@ -1,3 +1,11 @@
 {
-  "users": []
+  "users": [
+    {
+      "username": "Micky",
+      "email": "mickymaus@disney.com",
+      "password": "0123456789",
+      "token": "h5sLdKohCrzJmsr0",
+      "watchlist": []
+    }
+  ]
 }

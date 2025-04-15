@@ -1,5 +1,5 @@
 export const runtime = 'nodejs';
-import { getDb } from '@/app/api/lowdb';
+import { getDb } from '@/app/api/db';
 import { NextResponse } from 'next/server';
 
 // ? „Login prüft, ob der User in unserer fake-DB existiert, und ob das Passwort stimmt.

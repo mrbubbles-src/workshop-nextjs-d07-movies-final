@@ -64,7 +64,8 @@ This is a Next.js 15 (App Router) workshop app for movie search, watchlist, logi
 │   └── UserDashboard.jsx
 ├── 📁 layout
 │   ├── 📁 Navbar
-│   │   └── Navbar.jsx
+│   │   ├── Navbar.jsx
+│   │   └── Auth.jsx
 │   ├── Footer.jsx
 │   └── Herosection.jsx
 ├── 📁 ui

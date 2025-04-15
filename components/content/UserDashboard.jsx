@@ -13,7 +13,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/Carousel/carousel';
-import LoadingIndicator from '../ui/LoadingIndicator';
 
 const UserDashboard = () => {
   const { user, isLoading } = useAuth();

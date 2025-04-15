@@ -78,8 +78,8 @@ This is a Next.js 15 (App Router) workshop app for movie search, watchlist, logi
 📁 context
 ├── AuthProvider.jsx
 └── SearchProvider.jsx
-│  └── useActivePath.js
-📁 lib
+│
+📁 hooks
 └── useActivePath.js
 📁 lib
 ├── lowdb.js

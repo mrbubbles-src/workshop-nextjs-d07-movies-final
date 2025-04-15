@@ -54,7 +54,7 @@ const FavoriteButton = ({ data }) => {
     <FontAwesomeIcon
       icon={faHeart}
       onClick={handleFavoriteToggle}
-      className={`absolute top-2 right-2 z-30 cursor-pointer text-4xl transition-all duration-500 ease-in-out hover:scale-110 ${
+      className={`absolute top-2 right-2 z-30 cursor-pointer text-4xl transition-all duration-500 ease-in-out hover:scale-110 ${loading ? 'animate-pulse' : ''} ${
         isFavorite
           ? 'hover:text-brand-secondary/50 text-brand-primary drop-shadow-[0_0_7px_var(--color-brand-secondary)]'
           : 'text-brand-secondary/50 hover:text-brand-primary drop-shadow-[0_0_7px_var(--color-brand-primary)]'
